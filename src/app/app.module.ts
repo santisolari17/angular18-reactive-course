@@ -23,7 +23,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { CourseDialogComponent } from './course-dialog/course-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -34,6 +37,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { SearchLessonsComponent } from './search-lessons/search-lessons.component';
 import { LoadingComponent } from './loading/loading.component';
 import { CoursesCardList } from './courses-card-list/courses-card-list.component';
+import { LoadingService } from './loading/loading.service';
+import { MessagesService } from './messages/messages.service';
 
 @NgModule({
   declarations: [
@@ -74,6 +79,10 @@ import { CoursesCardList } from './courses-card-list/courses-card-list.component
     MatMomentDateModule,
     ReactiveFormsModule,
   ],
-  providers: [provideHttpClient(withInterceptorsFromDi())],
+  providers: [
+    LoadingService,
+    MessagesService,
+    provideHttpClient(withInterceptorsFromDi()),
+  ],
 })
 export class AppModule {}

@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output, output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  output,
+} from '@angular/core';
 import { Course } from '../model/course';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
@@ -9,7 +16,7 @@ import { filter, tap } from 'rxjs/operators';
   templateUrl: './courses-card-list.component.html',
   styleUrls: ['./courses-card-list.component.css'],
 })
-export class CoursesCardList implements OnInit {
+export class CoursesCardList {
   @Input()
   public courses: Course[] = [];
 
@@ -17,10 +24,6 @@ export class CoursesCardList implements OnInit {
   public coursesChanged = new EventEmitter();
 
   constructor(private dialog: MatDialog) {}
-
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   public editCourse(course: Course): void {
     const dialogConfig = new MatDialogConfig();
