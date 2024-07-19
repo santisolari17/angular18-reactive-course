@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
@@ -15,6 +16,7 @@ import { filter, tap } from 'rxjs/operators';
   selector: 'courses-card-list',
   templateUrl: './courses-card-list.component.html',
   styleUrls: ['./courses-card-list.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CoursesCardList {
   @Input()
